@@ -3,27 +3,30 @@
 
 <head>
     <title>AR名刺</title>
-    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
-    <!-- AR.jsライブラリ読み込み -->
-    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
-    <!-- shaderライブラリ読み込み -->
-    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+    <!-- aframe.js -->
+    <script src="./aframe.min.js"></script>
+    <!-- ar.js -->
+    <script src="./aframe-ar.js"></script>
+    <!-- shader.js -->
+    <script src="./aframe-gif-shader.min.js"></script>
+    <!-- shader-grid-glitch.js -->
     <script src="shader-grid-glitch.js"></script>
 </head>
 
 <body>
     <a-scene embedded arjs="debugUIEnabled:false;">
         <a-assets>
-            <!-- asset for model file -->
+            <!--3D Model -->
             <a-asset-item id="3DModel" src="./../../assets/model/3D/OBJ/NogamiMasayoshi/Model.obj"></a-asset-item>
             <a-asset-item id="3DMaterial" src="./../../assets/model/3D/OBJ/NogamiMasayoshi/Model.mtl"></a-asset-item>
         </a-assets>
 
-        <!-- QRコード認識した場合の処理 -->
+        <!-- QR Code Reading -->
         <a-marker preset="custom" type="pattern" url="./../../assets/qrpattern/pattern-NogamiMasayoshi.patt">
             <a-entity obj-model="obj: #3DModel; mtl: #3DMaterial" position="-0.8 0 -0.3" rotation="180 0 90" scale="2.0 2.0 2.0"></a-entity>
         </a-marker>
 
+        <!-- Camera -->
         <a-entity camera></a-entity>
     </a-scene>
 </body>
